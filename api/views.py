@@ -20,3 +20,18 @@ def toDo(request):
 
     return render(request, 'tasks/list.html', constext)
 
+
+def updateTask(request, PK):
+    task = Task.objects.get(id=PK)
+
+    form = TaskForm(instance=task)
+
+    if request.method == "POST":
+        form = TaskForm(request.POST, instance=task)
+        if form.is_valid():
+            form.save()
+            return redirect('/api/v1/todo')
+
+    context = {'form': form}
+
+    return render(request, 'tasks/update_task.html', context)

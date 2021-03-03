@@ -1,5 +1,7 @@
 <h2>ADD YOUR SCREW UP TASK, HERE</h2>
 
+
+
 <form method="POST" action= "/api/v1/todo">
 {% csrf_token %}
 {{form.title}}
@@ -9,6 +11,8 @@
 
 {% for task in tasks %}
   <div>
+      <a href={% url 'updated_task' task.id %}>Update</a>
       <span>{{task}}</span>
+
   </div>
 {% endfor%}
