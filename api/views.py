@@ -35,3 +35,16 @@ def updateTask(request, PK):
     context = {'form': form}
 
     return render(request, 'tasks/update_task.html', context)
+
+
+def deleteTask(request, PK):
+
+    item = Task.objects.get(id=PK)
+
+    if request.method == "POST":
+        item.delete()
+        return redirect('/api/v1/todo')
+
+    context = {'item': item}
+
+    return render(request, 'tasks/delete_task.html', context)
