@@ -6,7 +6,7 @@ from .forms import *
 
 
 def main(request):
-    return HttpResponse('<h1>Screw me/<h1>')
+    return HttpResponse('<h1>Django says hello/<h1>')
 
 
 def toDo(request):
@@ -18,7 +18,7 @@ def toDo(request):
         if form.is_valid():
             # save it to the db
             form.save()
-        return redirect('/api/v1/todo')
+        return redirect('/')
 
     constext = {'tasks': tasks, "form": form}
 
@@ -34,7 +34,7 @@ def updateTask(request, PK):
         form = TaskForm(request.POST, instance=task)
         if form.is_valid():
             form.save()
-            return redirect('/api/v1/todo')
+            return redirect('/')
 
     context = {'form': form}
 
@@ -47,7 +47,7 @@ def deleteTask(request, PK):
 
     if request.method == "POST":
         item.delete()
-        return redirect('/api/v1/todo')
+        return redirect('')
 
     context = {'item': item}
 

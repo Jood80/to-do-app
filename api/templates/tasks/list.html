@@ -37,7 +37,7 @@
 
 	.center-column{
 		width:600px;
-		margin: 20px auto;
+		margin: 80px auto 20px;
 		padding:20px;
 		background-color: #fff;
 		border-radius: 3px;
@@ -62,17 +62,17 @@
 </style>
 
   <body>
-    <nav class="nav-wrapper">
+    {% comment %} <nav class="nav-wrapper">
       <div class="container">
         <a href="#" class="brand-logo" aria-disabled="true">
           To-Do-App
         </a>
       </div>
-    </nav> 
+    </nav>  {% endcomment %}
 
   <div class= "center-column">
 
-    <form method="POST" action= "/api/v1/todo">
+    <form method="POST" action= "/">
         {% csrf_token %}
         {{form.title}}
         <input class= "btn btn-info" type="submit" name= "add a task" >

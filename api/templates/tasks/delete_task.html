@@ -1,8 +1,7 @@
-<h2>Sure to Delete your wortheless life, and your "{{item}}" ?</h2>
+<h2>Want to Delete "{{item}}". Seriously🧐 ?</h2>
 
-<a href= "{% url 'list'%}">Rain it</a>
 
-<form method="POST" action= "">
+<form method="POST" action= "/">
   {% csrf_token %}
-  <input type= "submit" name ="FIRE">
+  <a href= "{% url 'list'%}">Remove it from its LAND</a>
 </form>
